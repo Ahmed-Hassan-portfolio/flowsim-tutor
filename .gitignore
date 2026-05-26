@@ -1,0 +1,67 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+.eggs/
+.installed.cfg
+build/
+dist/
+develop-eggs/
+parts/
+sdist/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+
+# Virtualenvs
+.venv/
+venv/
+env/
+ENV/
+
+# Secrets
+.env
+.env.local
+*.pem
+*.key
+
+# Built indexes (rebuild with `python index_docs.py`)
+data/chroma_db/
+data/bm25_index.pkl
+data/index_manifest.json
+data/test_chroma_temp/
+
+# Runtime state (created on first use)
+data/sessions/*.json
+data/notes/notes.json
+
+# Logs
+logs/
+*.log
+
+# Chainlit runtime artifacts
+.chainlit/
+.files/
+
+# Test cache
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Editor / OS
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Misc
+*.bak
+*.tmp
+nul
+
+# Agent task brief (local-only)
+CODEX_GITHUB_REVIEW.md

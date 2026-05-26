@@ -1,0 +1,65 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "flowsim-tutor"
+version = "0.1.0"
+description = "Hybrid-RAG MCP server with workflow + notes state and a Chainlit chat UI"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+keywords = ["mcp", "rag", "chromadb", "bm25", "chainlit", "anthropic", "openai"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering",
+]
+dependencies = [
+    "mcp[cli]>=1.0,<2.0",
+    "chromadb>=1.3,<2.0",
+    "sentence-transformers>=3.3,<4.0",
+    "rank-bm25>=0.2.2",
+    "pydantic>=2.0",
+    "python-dotenv>=1.0",
+]
+
+[project.optional-dependencies]
+chat = [
+    "chainlit>=1.0",
+    "anthropic>=0.40",
+    "openai>=1.0",
+]
+dev = [
+    "pytest>=7.0",
+    "pytest-asyncio>=0.21",
+]
+
+[project.scripts]
+flowsim-tutor-index = "index_docs:main"
+
+[tool.setuptools]
+py-modules = [
+    "server",
+    "index_docs",
+    "mcp_client",
+    "llm_connector",
+    "chat_app",
+    "web_system_prompt",
+]
+
+[tool.setuptools.packages.find]
+include = ["rag*", "state*", "tools*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+filterwarnings = [
+    "ignore::DeprecationWarning",
+    "ignore::PendingDeprecationWarning",
+]

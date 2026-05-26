@@ -1,0 +1,98 @@
+# Retrieval evaluation suite for the shipped synthetic corpus.
+#
+# Each probe states a natural-language query and the source file (and
+# optionally a section keyword) that MUST appear in the top-k retrieval
+# results. The probes target named concepts in the corpus, not generic
+# phrasing, so passes are meaningful for the chunker + RRF fusion stack.
+#
+# Run with:
+#     python -m tests.evals.run_evals
+#
+# This file is the source of truth — `run_evals.py` parses it directly.
+
+top_k: 5
+
+probes:
+  - id: time_step_maxdt
+    query: "how do I set MAXDT for adaptive time stepping"
+    expected_source: FlowSimHelp.md
+    expected_section_contains: "Time step control"
+
+  - id: steady_state_preprocessor
+    query: "what is the steady-state preprocessor and how do I enable it"
+    expected_source: FlowSimHelp.md
+    expected_section_contains: "Steady-state preprocessor"
+
+  - id: restart_workflow
+    query: "how do I restart a simulation from a previous run"
+    expected_source: FlowSimHelp.md
+    expected_section_contains: "Restart"
+
+  - id: tuning_model
+    query: "tuning model multipliers for friction"
+    expected_source: FlowSimHelp.md
+    expected_section_contains: "Tuning"
+
+  - id: integration_keyword
+    query: "INTEGRATION block keyword"
+    expected_source: FlowSimHelp.md
+    expected_section_contains: "INTEGRATION"
+
+  - id: options_keyword
+    query: "OPTIONS keyword"
+    expected_source: FlowSimHelp.md
+    expected_section_contains: "OPTIONS"
+
+  - id: line_section
+    query: "LINE section in the input file"
+    expected_source: FlowSimHelp.md
+    expected_section_contains: "LINE"
+
+  - id: pvt_tables
+    query: "PVT lookup tables for fluid properties"
+    expected_source: FlowSimHelp.md
+    expected_section_contains: "PVT"
+
+  - id: pipe_table_generation
+    query: "how do I generate the pipe table from a survey"
+    expected_source: PipelineEditorHelp.md
+    expected_section_contains: "pipe table"
+
+  - id: survey_import
+    query: "importing a deviation survey"
+    expected_source: PipelineEditorHelp.md
+    expected_section_contains: "survey"
+
+  - id: wall_profile_definition
+    query: "defining a wall profile with insulation layers"
+    expected_source: ProfileGeneratorHelp.md
+    expected_section_contains: "wall"
+
+  - id: valve_equipment
+    query: "valve equipment model in the well editor"
+    expected_source: WellEditorHelp.md
+    expected_section_contains: "Valve"
+
+  - id: packer_equipment
+    query: "packer model and how to place it in the tubing"
+    expected_source: WellEditorHelp.md
+    expected_section_contains: "Packer"
+
+  - id: gui_new_case
+    query: "create a new case in the GUI"
+    expected_source: FlowSimGUIHelp.md
+    expected_section_contains: "new case"
+
+  - id: sample_riser_slugging
+    query: "riser slugging sample case"
+    expected_source: FlowSimSampleCasesHelp.md
+    expected_section_contains: "02_riser_slugging"
+
+low_confidence_probes:
+  - id: off_topic_xylophone
+    query: "xylophone marsupial photosynthesis recipe"
+    expected_confidence: low
+
+  - id: off_topic_recipe
+    query: "best chocolate chip cookie recipe"
+    expected_confidence: low
