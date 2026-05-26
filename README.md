@@ -1,6 +1,8 @@
 # flowsim-tutor
 
-A domain-agnostic **hybrid-RAG MCP server** with workflow tracking and cross-session notes, plus a Chainlit chat UI that can compose it with any other MCP server. Ships with a small synthetic flow-simulation corpus ("FlowSim") so it runs end-to-end out of the box.
+FlowSim Tutor is a small, runnable example of the kind of AI assistant I like building: one that retrieves from a controlled technical corpus, calls tools through MCP, keeps track of the user's workflow, and stays honest when the evidence is weak.
+
+The shipped "FlowSim" documentation is synthetic, so the repo can be opened, indexed, tested, and demoed without vendor manuals or customer data. The same pattern can be pointed at real engineering documentation by replacing the Markdown files in `data/docs/`.
 
 ## What's technically interesting
 
@@ -86,4 +88,4 @@ Portfolio / research project maintained for demonstration and reproducibility. T
 
 ## See also
 
-A sibling project, `multiflash-mcp`, exposes 27 thermodynamic tools over the same MCP stdio interface and can be wired into this repo by adding a server entry to `mcp_servers.json` — Chainlit picks it up at startup. If both projects live under the same GitHub account, link them from your profile.
+A sibling project, [`multiflash-mcp`](https://github.com/Ahmed-Hassan-portfolio/multiflash-mcp), exposes 27 thermodynamic tools over the same MCP stdio interface. In a fuller assistant, FlowSim Tutor would provide the retrieval and workflow memory while `multiflash-mcp` provides deterministic thermodynamic calculations. Add a server entry to `mcp_servers.json` and Chainlit picks it up at startup.
