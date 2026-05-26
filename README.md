@@ -88,4 +88,6 @@ Portfolio / research project maintained for demonstration and reproducibility. T
 
 ## See also
 
-A sibling project, [`multiflash-mcp`](https://github.com/Ahmed-Hassan-portfolio/multiflash-mcp), exposes 27 thermodynamic tools over the same MCP stdio interface. In a fuller assistant, FlowSim Tutor would provide the retrieval and workflow memory while `multiflash-mcp` provides deterministic thermodynamic calculations. Add a server entry to `mcp_servers.json` and Chainlit picks it up at startup.
+The end-to-end simulator automation example is [`Olga-automation`](https://github.com/Ahmed-Hassan-portfolio/Olga-automation). In that architecture, FlowSim Tutor is the documentation and workflow-memory pattern: public synthetic docs in this repo, and approved licensed docs in a private environment.
+
+A sibling project, [`multiflash-mcp`](https://github.com/Ahmed-Hassan-portfolio/multiflash-mcp), exposes 27 thermodynamic tools over the same MCP stdio interface. In a fuller assistant, FlowSim Tutor would provide retrieval and workflow memory while `multiflash-mcp` provides deterministic thermodynamic calculations. Add a server entry to `mcp_servers.json` and Chainlit picks it up at startup.
